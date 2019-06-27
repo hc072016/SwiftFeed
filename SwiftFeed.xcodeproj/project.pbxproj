@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		DED6F85C22C409E000D26703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F85B22C409E000D26703 /* AppDelegate.swift */; };
-		DED6F85E22C409E000D26703 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F85D22C409E000D26703 /* ViewController.swift */; };
-		DED6F86122C409E000D26703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED6F85F22C409E000D26703 /* Main.storyboard */; };
 		DED6F86322C409E200D26703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DED6F86222C409E200D26703 /* Assets.xcassets */; };
 		DED6F86622C409E200D26703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED6F86422C409E200D26703 /* LaunchScreen.storyboard */; };
 		DED6F87122C409E200D26703 /* SwiftFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F87022C409E200D26703 /* SwiftFeedTests.swift */; };
 		DED6F87C22C409E200D26703 /* SwiftFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F87B22C409E200D26703 /* SwiftFeedUITests.swift */; };
+		DED6F88C22C40F6900D26703 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F88B22C40F6900D26703 /* Coordinator.swift */; };
+		DED6F88E22C411A900D26703 /* WindowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F88D22C411A900D26703 /* WindowCoordinator.swift */; };
+		DED6F89022C412F500D26703 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F88F22C412F500D26703 /* AppCoordinator.swift */; };
+		DED6F89422C4136400D26703 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89322C4136400D26703 /* NavigationCoordinator.swift */; };
+		DED6F89622C4146D00D26703 /* SwiftFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */; };
+		DED6F89A22C43F7000D26703 /* FeedMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */; };
+		DED6F89C22C453F300D26703 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +41,6 @@
 /* Begin PBXFileReference section */
 		DED6F85822C409E000D26703 /* SwiftFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED6F85B22C409E000D26703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DED6F85D22C409E000D26703 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DED6F86022C409E000D26703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DED6F86222C409E200D26703 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DED6F86522C409E200D26703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DED6F86722C409E200D26703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,13 @@
 		DED6F87722C409E200D26703 /* SwiftFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED6F87B22C409E200D26703 /* SwiftFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedUITests.swift; sourceTree = "<group>"; };
 		DED6F87D22C409E200D26703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DED6F88B22C40F6900D26703 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DED6F88D22C411A900D26703 /* WindowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCoordinator.swift; sourceTree = "<group>"; };
+		DED6F88F22C412F500D26703 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DED6F89322C4136400D26703 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedCoordinator.swift; sourceTree = "<group>"; };
+		DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMasterViewController.swift; sourceTree = "<group>"; };
+		DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +108,13 @@
 			isa = PBXGroup;
 			children = (
 				DED6F85B22C409E000D26703 /* AppDelegate.swift */,
-				DED6F85D22C409E000D26703 /* ViewController.swift */,
-				DED6F85F22C409E000D26703 /* Main.storyboard */,
+				DED6F88B22C40F6900D26703 /* Coordinator.swift */,
+				DED6F88D22C411A900D26703 /* WindowCoordinator.swift */,
+				DED6F88F22C412F500D26703 /* AppCoordinator.swift */,
+				DED6F89322C4136400D26703 /* NavigationCoordinator.swift */,
+				DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */,
+				DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */,
+				DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */,
 				DED6F86222C409E200D26703 /* Assets.xcassets */,
 				DED6F86422C409E200D26703 /* LaunchScreen.storyboard */,
 				DED6F86722C409E200D26703 /* Info.plist */,
@@ -231,7 +246,6 @@
 			files = (
 				DED6F86622C409E200D26703 /* LaunchScreen.storyboard in Resources */,
 				DED6F86322C409E200D26703 /* Assets.xcassets in Resources */,
-				DED6F86122C409E000D26703 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +270,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DED6F85E22C409E000D26703 /* ViewController.swift in Sources */,
+				DED6F89A22C43F7000D26703 /* FeedMasterViewController.swift in Sources */,
 				DED6F85C22C409E000D26703 /* AppDelegate.swift in Sources */,
+				DED6F89022C412F500D26703 /* AppCoordinator.swift in Sources */,
+				DED6F89622C4146D00D26703 /* SwiftFeedCoordinator.swift in Sources */,
+				DED6F88E22C411A900D26703 /* WindowCoordinator.swift in Sources */,
+				DED6F89422C4136400D26703 /* NavigationCoordinator.swift in Sources */,
+				DED6F89C22C453F300D26703 /* FeedDetailViewController.swift in Sources */,
+				DED6F88C22C40F6900D26703 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DED6F85F22C409E000D26703 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DED6F86022C409E000D26703 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DED6F86422C409E200D26703 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
