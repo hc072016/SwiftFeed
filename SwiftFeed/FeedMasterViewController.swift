@@ -9,10 +9,13 @@
 import UIKit
 
 protocol FeedMasterViewControllerDelegate: AnyObject {
+    
     func didSelectString(_ string: String, atIndexPath indexPath: IndexPath)
+    
 }
 
 class FeedMasterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     private var tableView: UITableView!
     private let data = ["haha", "hehe", "huhu"]
     weak var delegate: FeedMasterViewControllerDelegate?
@@ -22,7 +25,7 @@ class FeedMasterViewController: UIViewController, UITableViewDataSource, UITable
 
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
-        tableView = UITableView.init(frame: view.bounds, style: .plain)
+        tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellReuseIdentifier")
@@ -46,4 +49,5 @@ class FeedMasterViewController: UIViewController, UITableViewDataSource, UITable
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.didSelectString(data[indexPath.row], atIndexPath: indexPath)
     }
+    
 }

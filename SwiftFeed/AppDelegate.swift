@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         //If your app relies on the state restoration machinery to restore its view controllers, always show your app’s window from this method.
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        appCoordinator = AppCoordinator.init(window: window!)
+        appCoordinator = AppCoordinator(window: window!)
         appCoordinator?.start()
         return true
     }

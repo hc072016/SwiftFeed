@@ -9,9 +9,11 @@
 import UIKit
 
 class WindowCoordinator: Coordinator {
+    
     var window: UIWindow
     
     init(window: UIWindow) {
         self.window = window
     }
+    
 }

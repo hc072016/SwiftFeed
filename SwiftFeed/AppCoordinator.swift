@@ -9,12 +9,14 @@
 import UIKit
 
 class AppCoordinator: WindowCoordinator {
+    
     override func start() {
         let navigationController = UINavigationController()
         window.rootViewController = navigationController
-        let swiftFeedCoordinator = SwiftFeedCoordinator.init(navigationController: navigationController)
+        let swiftFeedCoordinator = SwiftFeedCoordinator(navigationController: navigationController)
         childCoordinators.append(swiftFeedCoordinator)
         swiftFeedCoordinator.start()
         window.makeKeyAndVisible()
     }
+    
 }

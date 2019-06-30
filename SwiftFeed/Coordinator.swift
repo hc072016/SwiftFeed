@@ -9,9 +9,11 @@
 import Foundation
 
 class Coordinator {
+    
     var childCoordinators: [Coordinator] = []
     
     func start() {
         
     }
+    
 }

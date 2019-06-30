@@ -19,6 +19,10 @@
 		DED6F89622C4146D00D26703 /* SwiftFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */; };
 		DED6F89A22C43F7000D26703 /* FeedMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */; };
 		DED6F89C22C453F300D26703 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */; };
+		DED6F8A022C46D6A00D26703 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89F22C46D6A00D26703 /* NewsFeed.swift */; };
+		DED6F8A222C4704F00D26703 /* NewsFeedContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8A122C4704F00D26703 /* NewsFeedContext.swift */; };
+		DED6F8A422C474F700D26703 /* NewsFeedNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8A322C474F700D26703 /* NewsFeedNetwork.swift */; };
+		DED6F8A622C4A94000D26703 /* SwiftFeedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedCoordinator.swift; sourceTree = "<group>"; };
 		DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMasterViewController.swift; sourceTree = "<group>"; };
 		DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
+		DED6F89F22C46D6A00D26703 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
+		DED6F8A122C4704F00D26703 /* NewsFeedContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedContext.swift; sourceTree = "<group>"; };
+		DED6F8A322C474F700D26703 /* NewsFeedNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedNetwork.swift; sourceTree = "<group>"; };
+		DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,10 @@
 				DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */,
 				DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */,
 				DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */,
+				DED6F89F22C46D6A00D26703 /* NewsFeed.swift */,
+				DED6F8A122C4704F00D26703 /* NewsFeedContext.swift */,
+				DED6F8A322C474F700D26703 /* NewsFeedNetwork.swift */,
+				DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */,
 				DED6F86222C409E200D26703 /* Assets.xcassets */,
 				DED6F86422C409E200D26703 /* LaunchScreen.storyboard */,
 				DED6F86722C409E200D26703 /* Info.plist */,
@@ -272,11 +284,15 @@
 			files = (
 				DED6F89A22C43F7000D26703 /* FeedMasterViewController.swift in Sources */,
 				DED6F85C22C409E000D26703 /* AppDelegate.swift in Sources */,
+				DED6F8A222C4704F00D26703 /* NewsFeedContext.swift in Sources */,
 				DED6F89022C412F500D26703 /* AppCoordinator.swift in Sources */,
 				DED6F89622C4146D00D26703 /* SwiftFeedCoordinator.swift in Sources */,
+				DED6F8A422C474F700D26703 /* NewsFeedNetwork.swift in Sources */,
 				DED6F88E22C411A900D26703 /* WindowCoordinator.swift in Sources */,
 				DED6F89422C4136400D26703 /* NavigationCoordinator.swift in Sources */,
+				DED6F8A022C46D6A00D26703 /* NewsFeed.swift in Sources */,
 				DED6F89C22C453F300D26703 /* FeedDetailViewController.swift in Sources */,
+				DED6F8A622C4A94000D26703 /* SwiftFeedFactory.swift in Sources */,
 				DED6F88C22C40F6900D26703 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XSH9Y3HHGY;
 				INFOPLIST_FILE = SwiftFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XSH9Y3HHGY;
 				INFOPLIST_FILE = SwiftFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
