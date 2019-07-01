@@ -8,16 +8,16 @@
 
 import Foundation
 
-private enum NewsFeedNetworkError: Error {
-    case invalidURL
-    case nilData
-}
-
 // dependency inversion
 protocol NewsFeedFactory {
     
     func makeNewsFeeds(data: Data) throws -> Array<Dictionary<String, Any>>
     
+}
+
+private enum NewsFeedNetworkError: Error {
+    case invalidURL
+    case nilData
 }
 
 class NewsFeedNetwork: NewsFeedGateway {

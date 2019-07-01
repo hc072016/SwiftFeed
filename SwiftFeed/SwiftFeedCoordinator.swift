@@ -8,41 +8,27 @@
 
 import UIKit
 
-class SwiftFeedCoordinator: NavigationCoordinator, FeedMasterViewControllerDelegate {
+class SwiftFeedCoordinator: NavigationCoordinator, NewsFeedMasterViewControllerDelegate {
     
+    var swiftFeedMasterViewModel: SwiftFeedMasterViewModel!
+    var swiftFeedDetailViewModel: SwiftFeedDetailViewModel!
     
-    
-    var context: NewsFeedContext!
     
     override func start() {
-        let feedMasterViewController = FeedMasterViewController()
-        feedMasterViewController.delegate = self
-        feedMasterViewController.title = "Swift News"
-        navigationController.pushViewController(feedMasterViewController, animated: false)
-        
-        
-//        context = NewsFeedContext(newsFeedGateway: NewsFeedNetwork(newsFeedFactory: SwiftFeedFactory()))
-//        context.fetchNewsFeed { (newsFeeds, error) in
-//            if error != nil {
-//                print(error!)
-//            } else {
-//                print(newsFeeds)
-//            }
-//        }
+        let newsFeedMasterViewController = NewsFeedMasterViewController()
+        swiftFeedMasterViewModel = SwiftFeedMasterViewModel(model: NewsFeedContext(newsFeedGateway: NewsFeedNetwork(newsFeedFactory: SwiftFeedFactory())))
+        newsFeedMasterViewController.newsFeedMasterViewModel = swiftFeedMasterViewModel
+        newsFeedMasterViewController.newsFeedMasterTableViewDelegate = SwiftFeedMasterViewDelegate(dataSource: swiftFeedMasterViewModel)
+        newsFeedMasterViewController.delegate = self
+        navigationController.pushViewController(newsFeedMasterViewController, animated: false)
     }
     
-    func didSelectString(_ string: String, atIndexPath indexPath: IndexPath) {
-        navigationController.pushViewController(FeedDetailViewController(), animated: true)
-        
-        
-        context = NewsFeedContext(newsFeedGateway: NewsFeedNetwork(newsFeedFactory: SwiftFeedFactory()))
-        context.fetchNewsFeed { (newsFeeds, error) in
-            if error != nil {
-                print(error!)
-            } else {
-                print(newsFeeds)
-            }
-        }
+    func tableViewDidSelectRow(atIndexPath indexPath: IndexPath) {
+        let swiftFeed = swiftFeedMasterViewModel.swiftFeed(atIndexPath: indexPath)
+        let feedDetailViewController = NewsFeedDetailViewController()
+        swiftFeedDetailViewModel = SwiftFeedDetailViewModel(model: swiftFeed)
+        feedDetailViewController.newsFeedDetailViewModel = swiftFeedDetailViewModel
+        navigationController.pushViewController(feedDetailViewController, animated: true)
     }
     
 }

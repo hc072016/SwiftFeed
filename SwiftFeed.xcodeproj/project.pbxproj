@@ -17,12 +17,16 @@
 		DED6F89022C412F500D26703 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F88F22C412F500D26703 /* AppCoordinator.swift */; };
 		DED6F89422C4136400D26703 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89322C4136400D26703 /* NavigationCoordinator.swift */; };
 		DED6F89622C4146D00D26703 /* SwiftFeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */; };
-		DED6F89A22C43F7000D26703 /* FeedMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */; };
-		DED6F89C22C453F300D26703 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */; };
+		DED6F89A22C43F7000D26703 /* NewsFeedMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89922C43F7000D26703 /* NewsFeedMasterViewController.swift */; };
+		DED6F89C22C453F300D26703 /* NewsFeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89B22C453F300D26703 /* NewsFeedDetailViewController.swift */; };
 		DED6F8A022C46D6A00D26703 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F89F22C46D6A00D26703 /* NewsFeed.swift */; };
 		DED6F8A222C4704F00D26703 /* NewsFeedContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8A122C4704F00D26703 /* NewsFeedContext.swift */; };
 		DED6F8A422C474F700D26703 /* NewsFeedNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8A322C474F700D26703 /* NewsFeedNetwork.swift */; };
 		DED6F8A622C4A94000D26703 /* SwiftFeedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */; };
+		DED6F8B422C936D800D26703 /* SwfitFeedMasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B322C936D800D26703 /* SwfitFeedMasterViewModel.swift */; };
+		DED6F8B622C9381500D26703 /* SwiftFeedMasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B522C9381500D26703 /* SwiftFeedMasterTableViewCell.swift */; };
+		DED6F8B822C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B722C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift */; };
+		DED6F8BA22C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B922C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,12 +63,16 @@
 		DED6F88F22C412F500D26703 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DED6F89322C4136400D26703 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedCoordinator.swift; sourceTree = "<group>"; };
-		DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMasterViewController.swift; sourceTree = "<group>"; };
-		DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
+		DED6F89922C43F7000D26703 /* NewsFeedMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedMasterViewController.swift; sourceTree = "<group>"; };
+		DED6F89B22C453F300D26703 /* NewsFeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedDetailViewController.swift; sourceTree = "<group>"; };
 		DED6F89F22C46D6A00D26703 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		DED6F8A122C4704F00D26703 /* NewsFeedContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedContext.swift; sourceTree = "<group>"; };
 		DED6F8A322C474F700D26703 /* NewsFeedNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedNetwork.swift; sourceTree = "<group>"; };
 		DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedFactory.swift; sourceTree = "<group>"; };
+		DED6F8B322C936D800D26703 /* SwfitFeedMasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwfitFeedMasterViewModel.swift; sourceTree = "<group>"; };
+		DED6F8B522C9381500D26703 /* SwiftFeedMasterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedMasterTableViewCell.swift; sourceTree = "<group>"; };
+		DED6F8B722C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedMasterViewDelegate.swift; sourceTree = "<group>"; };
+		DED6F8B922C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,12 +129,16 @@
 				DED6F88F22C412F500D26703 /* AppCoordinator.swift */,
 				DED6F89322C4136400D26703 /* NavigationCoordinator.swift */,
 				DED6F89522C4146D00D26703 /* SwiftFeedCoordinator.swift */,
-				DED6F89922C43F7000D26703 /* FeedMasterViewController.swift */,
-				DED6F89B22C453F300D26703 /* FeedDetailViewController.swift */,
+				DED6F89922C43F7000D26703 /* NewsFeedMasterViewController.swift */,
+				DED6F89B22C453F300D26703 /* NewsFeedDetailViewController.swift */,
 				DED6F89F22C46D6A00D26703 /* NewsFeed.swift */,
 				DED6F8A122C4704F00D26703 /* NewsFeedContext.swift */,
 				DED6F8A322C474F700D26703 /* NewsFeedNetwork.swift */,
 				DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */,
+				DED6F8B322C936D800D26703 /* SwfitFeedMasterViewModel.swift */,
+				DED6F8B522C9381500D26703 /* SwiftFeedMasterTableViewCell.swift */,
+				DED6F8B722C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift */,
+				DED6F8B922C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift */,
 				DED6F86222C409E200D26703 /* Assets.xcassets */,
 				DED6F86422C409E200D26703 /* LaunchScreen.storyboard */,
 				DED6F86722C409E200D26703 /* Info.plist */,
@@ -282,17 +294,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DED6F89A22C43F7000D26703 /* FeedMasterViewController.swift in Sources */,
+				DED6F89A22C43F7000D26703 /* NewsFeedMasterViewController.swift in Sources */,
 				DED6F85C22C409E000D26703 /* AppDelegate.swift in Sources */,
 				DED6F8A222C4704F00D26703 /* NewsFeedContext.swift in Sources */,
 				DED6F89022C412F500D26703 /* AppCoordinator.swift in Sources */,
+				DED6F8B622C9381500D26703 /* SwiftFeedMasterTableViewCell.swift in Sources */,
+				DED6F8B422C936D800D26703 /* SwfitFeedMasterViewModel.swift in Sources */,
 				DED6F89622C4146D00D26703 /* SwiftFeedCoordinator.swift in Sources */,
 				DED6F8A422C474F700D26703 /* NewsFeedNetwork.swift in Sources */,
 				DED6F88E22C411A900D26703 /* WindowCoordinator.swift in Sources */,
+				DED6F8BA22C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift in Sources */,
 				DED6F89422C4136400D26703 /* NavigationCoordinator.swift in Sources */,
 				DED6F8A022C46D6A00D26703 /* NewsFeed.swift in Sources */,
-				DED6F89C22C453F300D26703 /* FeedDetailViewController.swift in Sources */,
+				DED6F89C22C453F300D26703 /* NewsFeedDetailViewController.swift in Sources */,
 				DED6F8A622C4A94000D26703 /* SwiftFeedFactory.swift in Sources */,
+				DED6F8B822C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift in Sources */,
 				DED6F88C22C40F6900D26703 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

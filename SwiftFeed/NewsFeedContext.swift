@@ -28,7 +28,7 @@ class NewsFeedContext {
         self.newsFeedGateway = newsFeedGateway
     }
     
-    func fetchNewsFeed(withCompletionHandler completionHandler: @escaping ([NewsFeed], Error?) -> Void) {
+    func fetchNewsFeeds(withCompletionHandler completionHandler: @escaping ([NewsFeed], Error?) -> Void) {
         newsFeedGateway.getNewsFeeds { (newsFeedArray, error) in
             DispatchQueue.global(qos: .userInitiated).async {
                 //especially ensures that the parsing is not in main queue
