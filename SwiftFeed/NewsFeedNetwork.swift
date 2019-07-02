@@ -13,18 +13,23 @@ protocol NewsFeedFactory {
     
     func makeNewsFeeds(data: Data) throws -> Array<Dictionary<String, Any>>
     
+    func makeNewsFeedsClosure() -> (Data) throws -> Array<Dictionary<String, Any>>
+    
 }
 
 private enum NewsFeedNetworkError: Error {
+    case notFound
     case invalidURL
     case nilData
+    case invalidHTTPResponse
 }
 
 class NewsFeedNetwork: NewsFeedGateway {
     
     static private let newsFeedURLString = "https://www.reddit.com/r/swift/.json"
+    static private let newsFeedThumbnailCommonURLPrefixString = "https://b.thumbs.redditmedia.com/"
+    static private let newsFeedThumbnailCommonURLSuffixString = ".jpg"
     var newsFeedFactory: NewsFeedFactory
-    var urlSessionDataTask: URLSessionDataTask?
     
     init(newsFeedFactory: NewsFeedFactory) {
         self.newsFeedFactory = newsFeedFactory
@@ -32,52 +37,69 @@ class NewsFeedNetwork: NewsFeedGateway {
     
     func getResource(withURLString urlString: String, completionHandler: @escaping (Data, Error?) -> Void) {
         if let url = URL(string: urlString) {
-            urlSessionDataTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, urlResponse, error) in
+            let urlSessionDataTask = URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
                 // not in main thread here!
-                /*
-                if Thread.isMainThread {
-                    print("main thread")
-                } else {
-                    print("not in main thread")
-                    print(Thread.current)
-                }
-                */
+                //if !Thread.isMainThread {
+                //    print("not in main thread")
+                //}
                 if error != nil {
                     completionHandler(Data(), error)
                 } else {
-                    if let data = data {
-                        completionHandler(data, nil)
+                    if let httpURLResponse = urlResponse as? HTTPURLResponse {
+                        if httpURLResponse.statusCode == 200 {
+                            if let data = data {
+                                completionHandler(data, nil)
+                            } else {
+                                completionHandler(Data(), NewsFeedNetworkError.nilData)
+                            }
+                        } else {
+                            completionHandler(Data(), NewsFeedNetworkError.notFound)
+                        }
                     } else {
-                        completionHandler(Data(), NewsFeedNetworkError.nilData)
+                        completionHandler(Data(), NewsFeedNetworkError.invalidHTTPResponse)
                     }
                 }
-            })
-            urlSessionDataTask?.resume()
+            }
+            urlSessionDataTask.resume()
         } else {
             completionHandler(Data(), NewsFeedNetworkError.invalidURL)
         }
     }
     
     func getNewsFeeds(withCompletionHandler completionHandler: @escaping (Array<Dictionary<String, Any>>, Error?) -> Void) {
+        // so that the closure using makeNewsFeeds() does not need to retain 'self'
+        let makeNewsFeeds = newsFeedFactory.makeNewsFeedsClosure()
         getResource(withURLString: NewsFeedNetwork.newsFeedURLString) { (data, error) in
             DispatchQueue.global(qos: .userInitiated).async {
                 //especially ensures that the parsing is not in main queue
-                if error != nil {
-                    completionHandler([], error)
-                } else {
+                if error == nil {
                     do {
-                        completionHandler(try self.newsFeedFactory.makeNewsFeeds(data: data), nil)
+                        completionHandler(try makeNewsFeeds(data), nil)
                     } catch {
                         completionHandler([], error)
                     }
+                } else {
+                    completionHandler([], error)
+                }
+            }
+        }
+    }
+    
+    func getNewsFeedThumbnail(withThumbnailID thumbnailID: String, completionHandler: @escaping (Data, Error?) -> Void) {
+        let thumbnailURLString = NewsFeedNetwork.newsFeedThumbnailCommonURLPrefixString + thumbnailID + NewsFeedNetwork.newsFeedThumbnailCommonURLSuffixString
+        getResource(withURLString: thumbnailURLString) { (data, error) in
+            DispatchQueue.global(qos: .userInitiated).async {
+                if error == nil {
+                    completionHandler(data, nil)
+                } else {
+                    completionHandler(Data(), error)
                 }
             }
         }
     }
     
     func cancel() {
-        urlSessionDataTask?.cancel()
-        urlSessionDataTask = nil
+        // to-do
     }
     
     deinit {

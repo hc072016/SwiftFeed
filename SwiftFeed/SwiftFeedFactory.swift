@@ -63,9 +63,16 @@ private struct CodableNewsFeeds: Decodable {
 class SwiftFeedFactory: NewsFeedFactory {
     
     func makeNewsFeeds(data: Data) throws -> Array<Dictionary<String, Any>> {
-        let codableNewsFeeds = try JSONDecoder().decode(CodableNewsFeeds.self, from: data)
-        // Thread.sleep(forTimeInterval: 5) // test: make sure UI is responsive
-        return codableNewsFeeds.newsFeedArray
+        let makeNewsFeeds = makeNewsFeedsClosure()
+        return try makeNewsFeeds(data)
+    }
+    
+    func makeNewsFeedsClosure() -> (Data) throws -> Array<Dictionary<String, Any>> {
+        return {
+            let codableNewsFeeds = try JSONDecoder().decode(CodableNewsFeeds.self, from: $0)
+            // Thread.sleep(forTimeInterval: 5) // test: make sure UI is responsive
+            return codableNewsFeeds.newsFeedArray
+        }
     }
     
 }

@@ -10,9 +10,9 @@ import UIKit
 
 class SwiftFeedDetailViewModel: NewsFeedDetailViewModel {
     
-    private var newsFeed: NewsFeed
+    private var newsFeed: SwiftFeedMasterViewNewsFeed
     
-    init(model newsFeed: NewsFeed) {
+    init(model newsFeed: SwiftFeedMasterViewNewsFeed) {
         self.newsFeed = newsFeed
     }
     

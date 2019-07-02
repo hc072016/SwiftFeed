@@ -15,14 +15,29 @@ protocol NewsFeedMasterViewControllerDelegate: AnyObject {
     
 }
 
+protocol NewsFeedMasterTableViewModel {
+    
+    func newsFeedCount() -> Int
+    
+    func newsFeed(atIndexPath indexPath: IndexPath) -> SwiftFeedMasterViewNewsFeed
+    
+    func rowHeight(AtIndexPath indexPath: IndexPath) -> CGFloat
+    
+    func indexPath(forIDPath idPath: String) -> IndexPath?
+    
+    func loadThumbnail(atIndexPath indexPath: IndexPath, withCompletionHandler completionHandler: @escaping (Data, Error?) -> Void)
+    
+}
+
 // dependency inversion
-protocol NewsFeedMasterViewModel: UITableViewDataSource {
+// apply façade design pattern when it gets too complex
+protocol NewsFeedMasterViewModel: NewsFeedMasterTableViewModel {
     
     func title() -> String
     
-    func tableViewCellReuseIdentifier() -> String
+    func reloadNewsFeeds(withCompletionHandler completionHandler: @escaping (Error?) -> Void)
     
-    func refresh(withCompletionHandler completionHandler: @escaping (Error?) -> Void)
+    func cancel()
 }
 
 protocol NewsFeedMasterTableViewDelegateDelegate: AnyObject {
@@ -34,19 +49,29 @@ protocol NewsFeedMasterTableViewDelegateDelegate: AnyObject {
 // 'weak' cannot be applied to a property declaration in a protocol
 class NewsFeedMasterTableViewDelegate: NSObject, UITableViewDelegate {
     
-    var dataSource : UITableViewDataSource
+    var newsFeedMasterTableViewModel: NewsFeedMasterTableViewModel
     weak var delegate: NewsFeedMasterTableViewDelegateDelegate?
     
-    init(dataSource: UITableViewDataSource) {
-        self.dataSource = dataSource
+    init(newsFeedMasterTableViewModel: NewsFeedMasterTableViewModel) {
+        self.newsFeedMasterTableViewModel = newsFeedMasterTableViewModel
     }
+}
+
+protocol NewsFeedMasterTableViewDataSource: UITableViewDataSource {
+    
+    var newsFeedMasterTableViewModel: NewsFeedMasterTableViewModel { get set }
+    
+    func cellClass() -> AnyClass
+    
+    func tableViewCellReuseIdentifier() -> String
+    
 }
 
 class NewsFeedMasterViewController: UIViewController, NewsFeedMasterTableViewDelegateDelegate {
     
     private var tableView: UITableView!
-    private let data = ["haha", "hehe", "huhu"]
     var newsFeedMasterViewModel: NewsFeedMasterViewModel!
+    var newsFeedMasterTableViewDataSource: NewsFeedMasterTableViewDataSource!
     var newsFeedMasterTableViewDelegate: NewsFeedMasterTableViewDelegate!
     weak var delegate: NewsFeedMasterViewControllerDelegate?
     
@@ -56,13 +81,13 @@ class NewsFeedMasterViewController: UIViewController, NewsFeedMasterTableViewDel
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
         tableView = UITableView(frame: view.bounds, style: .plain)
-        if newsFeedMasterViewModel != nil && newsFeedMasterTableViewDelegate != nil {
+        if newsFeedMasterViewModel != nil && newsFeedMasterTableViewDataSource != nil {
             title = newsFeedMasterViewModel.title()
-            tableView.dataSource = newsFeedMasterViewModel
+            tableView.dataSource = newsFeedMasterTableViewDataSource
             tableView.delegate = newsFeedMasterTableViewDelegate
             newsFeedMasterTableViewDelegate.delegate = self
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: newsFeedMasterViewModel.tableViewCellReuseIdentifier())
-            newsFeedMasterViewModel.refresh { [weak self] (error) in
+            tableView.register(newsFeedMasterTableViewDataSource.cellClass(), forCellReuseIdentifier: newsFeedMasterTableViewDataSource.tableViewCellReuseIdentifier())
+            newsFeedMasterViewModel.reloadNewsFeeds { [weak self] (error) in
                 DispatchQueue.main.async {
                     if error == nil {
                         self?.tableView.reloadData()
@@ -78,8 +103,18 @@ class NewsFeedMasterViewController: UIViewController, NewsFeedMasterTableViewDel
             fatalError("NewsFeedMasterViewController – newsFeedMasterViewModel is nil in viewDidLoad")
         }
         tableView.contentInsetAdjustmentBehavior = .automatic
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        // auto layout begin; performance would be better without auto layout table view cells
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.estimatedRowHeight = 85.0 // should as accurate as possible
+        tableView.rowHeight = UITableView.automaticDimension
+        // auto layout end
         view.addSubview(tableView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        newsFeedMasterViewModel.cancel()
+        super.viewWillDisappear(animated)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -16,15 +16,17 @@ class SwiftFeedCoordinator: NavigationCoordinator, NewsFeedMasterViewControllerD
     
     override func start() {
         let newsFeedMasterViewController = NewsFeedMasterViewController()
-        swiftFeedMasterViewModel = SwiftFeedMasterViewModel(model: NewsFeedContext(newsFeedGateway: NewsFeedNetwork(newsFeedFactory: SwiftFeedFactory())))
+        let newsFeedContext = NewsFeedContext(newsFeedGateway: NewsFeedNetwork(newsFeedFactory: SwiftFeedFactory()))
+        swiftFeedMasterViewModel = SwiftFeedMasterViewModel(newsFeedContext: newsFeedContext)
         newsFeedMasterViewController.newsFeedMasterViewModel = swiftFeedMasterViewModel
-        newsFeedMasterViewController.newsFeedMasterTableViewDelegate = SwiftFeedMasterViewDelegate(dataSource: swiftFeedMasterViewModel)
+        newsFeedMasterViewController.newsFeedMasterTableViewDataSource = SwiftFeedMasterTableViewDataSource(newsFeedMasterTableViewModel: swiftFeedMasterViewModel)
+        newsFeedMasterViewController.newsFeedMasterTableViewDelegate = SwiftFeedMasterTableViewDelegate(newsFeedMasterTableViewModel: swiftFeedMasterViewModel)
         newsFeedMasterViewController.delegate = self
         navigationController.pushViewController(newsFeedMasterViewController, animated: false)
     }
     
     func tableViewDidSelectRow(atIndexPath indexPath: IndexPath) {
-        let swiftFeed = swiftFeedMasterViewModel.swiftFeed(atIndexPath: indexPath)
+        let swiftFeed = swiftFeedMasterViewModel.newsFeed(atIndexPath: indexPath)
         let feedDetailViewController = NewsFeedDetailViewController()
         swiftFeedDetailViewModel = SwiftFeedDetailViewModel(model: swiftFeed)
         feedDetailViewController.newsFeedDetailViewModel = swiftFeedDetailViewModel

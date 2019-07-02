@@ -25,8 +25,11 @@
 		DED6F8A622C4A94000D26703 /* SwiftFeedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */; };
 		DED6F8B422C936D800D26703 /* SwfitFeedMasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B322C936D800D26703 /* SwfitFeedMasterViewModel.swift */; };
 		DED6F8B622C9381500D26703 /* SwiftFeedMasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B522C9381500D26703 /* SwiftFeedMasterTableViewCell.swift */; };
-		DED6F8B822C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B722C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift */; };
+		DED6F8B822C9902D00D26703 /* SwiftFeedMasterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B722C9902D00D26703 /* SwiftFeedMasterTableViewDelegate.swift */; };
 		DED6F8BA22C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8B922C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift */; };
+		DED6F8BC22CA8E7D00D26703 /* NewsFeedResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F8BB22CA8E7D00D26703 /* NewsFeedResourceLoader.swift */; };
+		DED6F93422D6C5C800D26703 /* SwiftFeedMasterViewNewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F93322D6C5C800D26703 /* SwiftFeedMasterViewNewsFeed.swift */; };
+		DED6F93622D6C8C600D26703 /* SwiftFeedMasterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED6F93522D6C8C600D26703 /* SwiftFeedMasterTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +74,11 @@
 		DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedFactory.swift; sourceTree = "<group>"; };
 		DED6F8B322C936D800D26703 /* SwfitFeedMasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwfitFeedMasterViewModel.swift; sourceTree = "<group>"; };
 		DED6F8B522C9381500D26703 /* SwiftFeedMasterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedMasterTableViewCell.swift; sourceTree = "<group>"; };
-		DED6F8B722C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedMasterViewDelegate.swift; sourceTree = "<group>"; };
+		DED6F8B722C9902D00D26703 /* SwiftFeedMasterTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedMasterTableViewDelegate.swift; sourceTree = "<group>"; };
 		DED6F8B922C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedDetailViewModel.swift; sourceTree = "<group>"; };
+		DED6F8BB22CA8E7D00D26703 /* NewsFeedResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedResourceLoader.swift; sourceTree = "<group>"; };
+		DED6F93322D6C5C800D26703 /* SwiftFeedMasterViewNewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedMasterViewNewsFeed.swift; sourceTree = "<group>"; };
+		DED6F93522D6C8C600D26703 /* SwiftFeedMasterTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFeedMasterTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +143,11 @@
 				DED6F8A522C4A94000D26703 /* SwiftFeedFactory.swift */,
 				DED6F8B322C936D800D26703 /* SwfitFeedMasterViewModel.swift */,
 				DED6F8B522C9381500D26703 /* SwiftFeedMasterTableViewCell.swift */,
-				DED6F8B722C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift */,
+				DED6F8B722C9902D00D26703 /* SwiftFeedMasterTableViewDelegate.swift */,
 				DED6F8B922C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift */,
+				DED6F8BB22CA8E7D00D26703 /* NewsFeedResourceLoader.swift */,
+				DED6F93322D6C5C800D26703 /* SwiftFeedMasterViewNewsFeed.swift */,
+				DED6F93522D6C8C600D26703 /* SwiftFeedMasterTableViewDataSource.swift */,
 				DED6F86222C409E200D26703 /* Assets.xcassets */,
 				DED6F86422C409E200D26703 /* LaunchScreen.storyboard */,
 				DED6F86722C409E200D26703 /* Info.plist */,
@@ -295,12 +304,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DED6F89A22C43F7000D26703 /* NewsFeedMasterViewController.swift in Sources */,
+				DED6F93622D6C8C600D26703 /* SwiftFeedMasterTableViewDataSource.swift in Sources */,
 				DED6F85C22C409E000D26703 /* AppDelegate.swift in Sources */,
 				DED6F8A222C4704F00D26703 /* NewsFeedContext.swift in Sources */,
 				DED6F89022C412F500D26703 /* AppCoordinator.swift in Sources */,
 				DED6F8B622C9381500D26703 /* SwiftFeedMasterTableViewCell.swift in Sources */,
 				DED6F8B422C936D800D26703 /* SwfitFeedMasterViewModel.swift in Sources */,
 				DED6F89622C4146D00D26703 /* SwiftFeedCoordinator.swift in Sources */,
+				DED6F93422D6C5C800D26703 /* SwiftFeedMasterViewNewsFeed.swift in Sources */,
 				DED6F8A422C474F700D26703 /* NewsFeedNetwork.swift in Sources */,
 				DED6F88E22C411A900D26703 /* WindowCoordinator.swift in Sources */,
 				DED6F8BA22C9ACFA00D26703 /* SwiftFeedDetailViewModel.swift in Sources */,
@@ -308,7 +319,8 @@
 				DED6F8A022C46D6A00D26703 /* NewsFeed.swift in Sources */,
 				DED6F89C22C453F300D26703 /* NewsFeedDetailViewController.swift in Sources */,
 				DED6F8A622C4A94000D26703 /* SwiftFeedFactory.swift in Sources */,
-				DED6F8B822C9902D00D26703 /* SwiftFeedMasterViewDelegate.swift in Sources */,
+				DED6F8B822C9902D00D26703 /* SwiftFeedMasterTableViewDelegate.swift in Sources */,
+				DED6F8BC22CA8E7D00D26703 /* NewsFeedResourceLoader.swift in Sources */,
 				DED6F88C22C40F6900D26703 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,7 +489,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSH9Y3HHGY;
 				INFOPLIST_FILE = SwiftFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -495,7 +506,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSH9Y3HHGY;
 				INFOPLIST_FILE = SwiftFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

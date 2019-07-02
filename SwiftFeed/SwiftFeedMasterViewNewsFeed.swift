@@ -1,21 +1,21 @@
 //
-//  NewsFeed.swift
+//  SwiftFeedMasterViewNewsFeed.swift
 //  SwiftFeed
 //
-//  Created by Howie C on 6/26/19.
+//  Created by Howie C on 7/10/19.
 //  Copyright © 2019 Howie C. All rights reserved.
 //
 
 import Foundation
 
-struct NewsFeed {
+struct SwiftFeedMasterViewNewsFeed {
     
     let id: String
     let title: String
     let text: String
-    let thumbnail: Thumbnail?
+    var thumbnail: SwiftFeedMasterViewThumbnail?
     
-    init(id: String, title: String, text: String, thumbnail: Thumbnail? = nil) {
+    init(id: String, title: String, text: String, thumbnail: SwiftFeedMasterViewThumbnail? = nil) {
         self.id = id
         self.title = title
         self.text = text
@@ -24,16 +24,18 @@ struct NewsFeed {
     
 }
 
-struct Thumbnail {
+struct SwiftFeedMasterViewThumbnail {
     
     let id: String
     let width: UInt
     let height: UInt
+    var data: Data?
     
-    init(id: String, width: UInt, height: UInt) {
+    init(id: String, width: UInt, height: UInt, data: Data? = nil) {
         self.id = id
         self.width = width
         self.height = height
+        self.data = data
     }
     
 }
